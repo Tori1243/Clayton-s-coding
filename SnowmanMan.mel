@@ -1,0 +1,48 @@
+//base
+polySphere -r 4 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 0 3.5 0 ;
+
+//MidBody
+polySphere -r 3 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 0 9.536592 0 ;
+move -r 0 -0.608771 0 ;
+
+//head
+polySphere -r 2 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 0 13.500728 0 ;
+move -r 0 -0.744646 0 ;
+
+//hat
+polyCylinder -r 3 -h .3 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+move -r 0 14.418033 0 ;
+move -r 0 -0.322923 0 ;
+polyCylinder -r 2 -h 3.5 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+move -r 0 16.192626 0 ;
+move -r 0 -0.24911 0 ;
+
+//nose
+polyCone -r .3 -h 3 -sx 20 -sy 1 -sz 0 -ax 1 0.2 0 -rcp 0 -cuv 3 -ch 1;
+move -r 2.461 12.57 0 ;
+//eyes
+polySphere -r .3 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 1.822 13.035 0.763136 ;
+polySphere -r .3 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 1.822 13.035 -0.83 ;
+
+//buttons
+polySphere -r .5 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 2.385 10.125 -0.032 ;
+polySphere -r .5 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 2.817 9.286 -0.032 ;
+polySphere -r .5 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1;
+move -r 2.735 7.938 -0.032 ;
+
+//arms
+polyCylinder -r .2 -h 5 -sx 20 -sy 1 -sz 1 -ax 0 .2 1 -rcp 0 -cuv 3 -ch 1;
+move -r 0 9.908 -3.517 ;
+polyCylinder -r .2 -h 5 -sx 20 -sy 1 -sz 1 -ax 0 .8 1 -rcp 0 -cuv 3 -ch 1;
+move -r 0 10.916 3.696 ;
+polyCylinder -r .1 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 .1 -rcp 0 -cuv 3 -ch 1;
+move -r 0.084 12.32 4.843 ;
+polyCylinder -r .1 -h 1 -sx 20 -sy 1 -sz 1 -ax 0 1 .1 -rcp 0 -cuv 3 -ch 1;
+move -r -0.084 9.092 -4.843 ;
