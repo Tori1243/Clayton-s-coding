@@ -1,0 +1,98 @@
+{
+    string $UfoParts[] = {};
+    string $tempUfoParts[] = {};
+    
+//Base
+
+$tempUfoParts = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+$tempUfoParts[0] = `rename $tempUfoParts[0] "UfoBase"`;
+move -r 0 7.972483 0 ;
+scale -r 1.402 0.446 1.402 ;
+
+//GlassDome
+select -r UfoBase.f[334] ;
+select -tgl UfoBase.f[333] ;
+select -add UfoBase.f[320:339] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -8.356571196e-08 -pvy 8.383263064 -pvz -1.0445714e-07 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 UfoBase.f[320:339];
+setAttr "polyExtrudeFace1.localTranslate" -type double3 0 0 0.420228 ;
+select -r UfoBase.e[335] ;
+select -tgl UfoBase.e[334] ;
+select -add UfoBase.e[320:339] ;
+scale -r -p -1.04457e-07cm 8.369872cm -1.04457e-07cm 1.217187 1.217187 1.217187 ;
+select -r UfoBase.e[842] ;
+select -tgl UfoBase.e[837] ;
+select -add UfoBase.e[766] UfoBase.e[772] UfoBase.e[777] UfoBase.e[782] UfoBase.e[787] UfoBase.e[792] UfoBase.e[797] UfoBase.e[802] UfoBase.e[807] UfoBase.e[812] UfoBase.e[817] UfoBase.e[822] UfoBase.e[827] UfoBase.e[832] UfoBase.e[837] UfoBase.e[842] UfoBase.e[847] UfoBase.e[852] UfoBase.e[857] UfoBase.e[859] ;
+move -r 0 0.22228 0 ;
+scale -r -p -4.17829e-08cm 9.035473cm 8.35657e-07cm 0.138448 0.138448 0.138448 ;
+move -r 0 -0.0529628 0 ;
+select -d UfoBase.f[320:339] ;
+select -r UfoBase.e[834] ;
+select -tgl UfoBase.e[839] ;
+select -add UfoBase.e[762] UfoBase.e[769] UfoBase.e[774] UfoBase.e[779] UfoBase.e[784] UfoBase.e[789] UfoBase.e[794] UfoBase.e[799] UfoBase.e[804] UfoBase.e[809] UfoBase.e[814] UfoBase.e[819] UfoBase.e[824] UfoBase.e[829] UfoBase.e[834] UfoBase.e[839] UfoBase.e[844] UfoBase.e[849] UfoBase.e[854] UfoBase.e[858] ;
+move -r 0 0.0606721 0 ;
+select -r UfoBase.e[333] ;
+select -tgl UfoBase.e[332] ;
+select -add UfoBase.e[320:339] ;
+move -r 0 -0.0723032 0 ;
+//beamRay
+select -r UfoBase.e[15] ;
+select -tgl UfoBase.e[16] ;
+select -add UfoBase.e[0:19] ;
+polyExtrudeEdge -constructionHistory 1 -keepFacesTogether 1 -pvx -3.133714199e-08 -pvy 7.531974123 -pvz -4.178285599e-08 -divisions 1 -twist 0 -taper 1 -offset 0 -thickness 0 -smoothingAngle 30 UfoBase.e[0:19];
+setAttr "polyExtrudeEdge1.localTranslate" -type double3 0 0 6.737735 ;
+scale -r -p 3.46798e-06cm 0.803089cm -6.05851e-06cm 2.916661 2.916661 2.916661 ;
+select -r UfoBase.f[453] ;
+select -tgl UfoBase.f[452] ;
+select -add UfoBase.f[440:459] ;
+polyNormal -normalMode 0 -userNormalMode 0 -ch 1 UfoBase.f[440:459];
+
+$UfoParts[size($UfoParts)] = $tempUfoParts[0];
+
+//lights
+//one
+$tempUfoParts = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+$tempUfoParts[0] = `rename $tempUfoParts[0] "Light1"`;
+
+move -r -1.149 8.201 0 ;
+scale -r 0.24592 0.24592 0.24592 ;
+
+$UfoParts[size($UfoParts)] = $tempUfoParts[0]; 
+
+
+//two
+$tempUfoParts = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+$tempUfoParts[0] = `rename $tempUfoParts[0] "Light2"`;
+move -r 1.138 8.201 0 ;
+scale -r 0.24592 0.24592 0.24592 ;
+
+$UfoParts[size($UfoParts)] = $tempUfoParts[0]; 
+
+//three
+$tempUfoParts = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+$tempUfoParts[0] = `rename $tempUfoParts[0] "Light3"`;
+move -r 0 8.201 1.163 ;
+scale -r 0.24592 0.24592 0.24592 ;
+
+$UfoParts[size($UfoParts)] = $tempUfoParts[0]; 
+
+//four
+$tempUfoParts = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+$tempUfoParts[0] = `rename $tempUfoParts[0] "Light4"`;
+scale -r 0.24592 0.24592 0.24592 ;
+move -r 0 8.225 -1.189 ;
+
+$UfoParts[size($UfoParts)] = $tempUfoParts[0]; 
+
+polyUnite $UfoParts;
+rename "polySurface1" "UfoGeo";
+
+group -empty -name "Geometry";
+
+if(objExists("Geometry"))
+{
+    select -r UfoGeo Geometry;
+    parent;
+}
+
+
+}
