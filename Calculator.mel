@@ -1,0 +1,140 @@
+//Sum
+proc float AddValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $num3 = 5.5;
+    float $sum = $num1 + $num2;
+    print ($sum);
+    return $sum;
+   // float $sum = $sum + $num3;
+}
+
+AddValues();
+
+//Sub
+proc float SubValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $num3 = 5.5;
+    float $sum = $num1 - $num2 - $num3;
+    print ($sum);
+    return $sum;
+
+}
+
+SubValues();
+
+//Mult
+proc float MultValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $num3 = 5.5;
+    float $sum = $num1 * $num2 * $num3;
+    print ($sum);
+    return $sum;
+
+}
+
+MultValues();
+
+//Divide
+proc float DivValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $num3 = 5.5;
+    float $sum = $num1 / $num2 / $num3;
+    print ($sum);
+    return $sum;
+ 
+}
+
+DivValues();
+
+//module
+proc float ModValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $num3 = 5.5;
+    float $sum = $num1 % $num2;
+    print ($sum);
+    return $sum;
+  
+}
+
+ModValues();
+
+//mixed
+proc float MixValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $num3 = 5.5;
+    float $sum = $num1 / $num2 * $num3 % $num1;
+    print ($sum);
+    return $sum;
+ 
+}
+
+MixValues();
+
+//power
+proc float PowValues()
+{
+    float $num1 = 3.5;
+    float $num2 = 4.5;
+    float $sum = pow($num1, $num2);
+    print ($sum);
+    return $sum;
+   
+}
+
+PowValues();
+
+//Mean
+proc float MeanValues()
+{
+    float $num1 = 6.5;
+    float $num2 = 7.5;
+    float $num3 = 8.5;
+    float $sum = 
+}
+
+//Median
+//Mode
+
+//Add Again
+proc float AddNumber (float $num1, float $num2)
+{
+    float $sum;
+    $sum = $num1 +$num2;
+    return 0;
+}
+print(AddNumber (2, 2));
+print(4);
+
+//SubAgain
+proc float SubNumber (float $num1, float $num2)
+{
+    float $sum;
+    $sum = $num1 - $num2;
+    return 0;
+}
+print(SubNumber (2, 2) - SubNumber(12, 10));
+print(0 - 2);
+
+//Trying reloading
+proc SaySomething()
+{
+    print ("Hey guys! \n");
+    float $num1 = 5.5;
+    float $num2 = 4.5;
+    float $sum = $num1 +$num2;
+    print ("\nLook I added " + $num1 + " and " + $num2 + " and got " + $sum + "!!!");
+}
+
+SaySomething();

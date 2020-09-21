@@ -1,0 +1,146 @@
+//Add
+{
+proc float AddValues(float $num[])
+{
+    float $sum = 0;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum += $num[$i];
+    }
+    return $sum;
+}
+float $numbersum = AddValues({4,3,6,1,1,1});
+print $numbersum;
+}
+
+//Sub
+{
+proc float SubValues(float $num[])
+{
+    float $sum = 10;
+    for ($i=0; $i<size($num); $i++)
+    {
+         $sum -= $num[$i];
+    }
+    return $sum;
+}
+float $numberSub = SubValues ({10,5,11,2,4,4});
+print $numberSub;
+}
+
+//Multiply
+{
+proc float MultValues (float $num[])
+{
+    float $sum = 2;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum *= $num[$i];
+    }
+return $sum;
+}
+float $numberPlied = MultValues({7,8});
+print $numberPlied;
+}
+
+//Divide
+{
+proc float DivValues(float $num[])
+{
+    float $sum = $num[0];
+    for($i=1; $i<size($num); $i++)
+    {
+        $sum /= $num[$i];
+    }
+return $sum;
+}
+float $numberVided = DivValues({17,38,4});
+print $numberVided;
+}
+
+//Mod
+{
+proc float ModValues (float $num[])
+{
+    float $sum = 2;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum %= $num[$i];
+    }
+return $sum;
+}
+float $numberModed= ModValues ({14,8});
+print $numberModed;
+}
+
+//Power
+{
+proc float Power(float $base, float $power)
+{
+    float $powerValue = $base;
+    for($i=1; $i<$power; $i++)
+    {
+        $powerValue *= $base;
+    }
+return $powerValue;
+}
+Power(10,5);
+}
+
+//Mean
+{
+proc float Mean (float $num[])
+{
+    float $average;
+    float $sum = 0;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum += $num[$i];
+    } 
+$average = $sum / size($num);
+return $average;
+}
+int $numberMean = Mean({14,30,42});
+print $numberMean;
+}
+
+
+
+//Median
+{
+proc float Medians (float $num[])
+{
+   
+    int $numSize = size($num);
+    float $median, $median1, $median2;
+    $num = `sort $num`;
+    
+    if($numSize % 2 == 0)
+    {
+       // print ("even\n");
+        $median1 = $num[$numSize / 2];
+        $median2 = $num[$numSize / 2 - 1];
+        $median = ($median1 + $median2) / 2;   
+    }
+    else
+    {
+       // print ("odd\n");
+        $median = $num[$numSize / 2];
+    }
+    
+   print("\nThe Median of the values is " + $median);
+   return $median;
+   
+   }
+   int $NumberMedian = Medians({10, 3, 14, 11, 47});
+   }
+
+//Mode
+{
+proc float ModeNum (int $num[])
+{
+    int $ModeMost[];
+   // $num = `sort $num`;
+   
+}
+}
