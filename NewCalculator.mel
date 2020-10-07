@@ -137,9 +137,30 @@ proc float Medians (float $num[])
 
 //Mode
 {
-proc float ModeNum (int $num[])
+proc float ModeNum (float $num[])
 {
-    int $ModeMost[];
+    float $ModeMost[];
+    float $frequency[];
+    
+    for ($i=0; $i<size($num); $i++))
+    
+    {
+        if (!floatArrayContains($num[$i], $ModeMost))
+        {
+        
+        $ModeMost[size($ModeMost)] = $numbers[$i];
+        $frequency[size($frequency] = 1;
+        
+        }
+    else
+        {
+        int $index;
+        $index = floatArrayFind($num[$i], 0, $ModeMost);
+        $frequency[$index] = $frequency[$index] + 1;
+        }
+   }
+   return 1;
+    
    // $num = `sort $num`;
    
 }

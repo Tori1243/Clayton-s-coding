@@ -1,0 +1,266 @@
+//Finished Calculator
+//source math
+
+proc float Calculator(float $num[], string $operation)
+{
+    
+   //$numers = {2,13,14,20,11}
+    float $return;
+    if ($operation == "add")
+    {
+        $return = `AddValues($num)`; 
+           return $return;
+    }
+
+    else if ($operation == "Subtract")
+    {
+        $return = `SubValues($num)`;
+        return $return; 
+    }
+     else if ($operation == "Multiply")
+     {
+    
+        $return = `MultValues($num)`; 
+           return $return;
+    }
+
+    else if ($operation == "Division")
+    {
+        $return = `DivValues($num)`;
+        return $return; 
+    }
+
+
+   // else if ($operation == "Powers")
+  //  {
+        
+    //    $return = `Power($num)`;
+    //    return $return; 
+        
+  //  }
+      else if ($operation == "MeanValues")
+    {
+        
+        $return = `Mean($num)`; 
+           return $return;
+           
+    }
+    else if ($operation == "Median")
+    {
+        
+        $return = `Medians ($num)`;
+        return $return; 
+        
+    }
+    
+    else 
+    {
+        print "invalid input"; 
+        
+        return 0; 
+    }
+       
+        
+        return $return;
+        
+        
+}
+
+
+Calculator({2,13,14,20,11}, "Subtract");
+
+
+
+{
+ //Add
+proc float AddValues(float $num[])
+{
+    float $sum = 0;
+  
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum += $num[$i];
+    }
+    
+    print "The sum of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ", ");
+       }
+    print ("is " + $sum);
+    
+    return $sum;
+    
+}
+
+}
+
+//Sub
+{
+proc float SubValues(float $num[])
+{
+    float $sum = 10;
+    for ($i=0; $i<size($num); $i++)
+    {
+         $sum -= $num[$i];
+    }
+    print "The difference of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ", ");
+       }
+    print ("is " + $sum);
+    
+    return $sum;
+    
+}
+
+}
+
+//Multiply
+{
+proc float MultValues (float $num[])
+{
+    float $sum = 2;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum *= $num[$i];
+    }
+     print "The product of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ", ");
+       }
+    print ("is " + $sum);
+    
+return $sum;
+}
+
+}
+
+//Divide
+{
+proc float DivValues(float $num[])
+{
+    float $sum = $num[0];
+    for($i=1; $i<size($num); $i++)
+    {
+        $sum /= $num[$i];
+    }
+     print "The quotiant of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ", ");
+       }
+    print ("is " + $sum);
+    
+return $sum;
+}
+
+}
+
+//Mod
+{
+proc float ModValues (float $num[])
+{
+    float $sum = 2;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum %= $num[$i];
+    }
+
+
+ print "The Mode of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ", ");
+       }
+    print ("is " + $sum);
+    
+    return $sum;
+    
+}
+}
+
+//Power
+/*{
+proc float Power(float $base, float $num[])
+{
+    float $powerValue = $base;
+    for($i=1; $i<size($num); $i++)
+    {
+        $powerValue *= $base;
+    }
+
+
+ print "The product of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ",");
+       }
+    print ("is " + $powerValue);
+    
+    return $powerValue;
+}
+}*/
+
+//Mean
+{
+proc float Mean (float $num[])
+{
+    float $average;
+    float $sum = 0;
+    for($i=0; $i<size($num); $i++)
+    {
+        $sum += $num[$i];
+    } 
+$average = $sum / size($num);
+
+ print "The Mean of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ", ");
+       }
+    print ("is " + $sum);
+    
+return $average;
+}
+
+}
+
+//Median
+{
+proc float Medians (float $num[])
+{
+   
+    int $numSize = size($num);
+    float $median, $median1, $median2;
+    $num = `sort $num`;
+    
+    if($numSize % 2 == 0)
+    {
+       // print ("even\n");
+        $median1 = $num[$numSize / 2];
+        $median2 = $num[$numSize / 2 - 1];
+        $median = ($median1 + $median2) / 2;   
+    }
+    else
+    {
+       // print ("odd\n");
+        $median = $num[$numSize / 2];
+    }
+    
+   print("\nThe Median of the values is " + $median);
+   
+    print "The Median of ";
+       for($i=0; $i<size($num); $i++)
+       {
+           print ($num[$i] + ",");
+       }
+    print ("is " + $median);
+    
+   return $median;
+   
+   }
+  // int $NumberMedian = Medians({10, 3, 14, 11, 47});
+   }

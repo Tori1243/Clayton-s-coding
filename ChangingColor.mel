@@ -1,0 +1,66 @@
+{
+//Change color of the wirefram control 
+proc ChangeColor(int $color)
+{
+    $selection = `ls -sl`;
+    if ($selection == 0)
+    {
+        error "Nothing selected. Please try again.";
+    }
+    
+    string $shapes[];
+    for ($obj in $selection)
+    {
+        $relatives = `listRelatives -shapes $obj`;
+        for ($rel in $relatives)
+        {
+            $shapes[size($shapes)] = $rel;
+        }
+    }
+    if($color <= 0)
+    {
+        for($shape in $shapes)
+        {
+            setAttr ($shape + ".overrideEnabled") 0;
+        }
+    }
+    else
+    {
+        for ($shape in $shapes)
+        {
+            setAttr ($shape + ".overrideEnabled") 1;
+            setAttr ($shape + ".overrideColor") $color;
+        }
+    }
+}
+}
+  
+  
+  
+   /* $color  = 21;
+    //for($i=0; $i<size($controls); $i++)
+    //{
+     //setAttr ($i + "Shape.overrideEnabled") 1;
+      //changeObjColor ($i + "Shape.overriderColor") $color;
+      //displayColor ($i + "Shape.overrideColor") $color;
+       
+       // overrideModifier
+        
+   // }
+   // float $controlsChange = $controls;
+
+//    return $controls; 
+    }
+    
+   // $color = color I want to assign 
+    
+/*//}
+//Arguments $color- Argument specifying color to assign 
+
+//Variables: $controls [] - store a list of currently selected objects (ls- sl)
+
+//Iterate through $controls array (for loop)
+// - find the associated shape node(s) *list Relatives
+//-Change color
+// -Enable Override on shape Override
+//Change the shape to $color (0-31)
