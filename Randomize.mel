@@ -1,0 +1,36 @@
+proc RandomPlacement(int $num, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
+{
+    //gather variables
+    string $selection[] = {};
+    $selection  = `ls -sl`;
+    
+   for ($j=0; $j<size($selection); $j++)
+    {
+        int $index = $j;
+
+            for($i=0; $i<$num; $i++)
+            {
+                string $tempArray[] = {};
+                $tempArray = `duplicate -rr $selection[$index]`;
+                             
+                //Make the duplicates 
+                
+                float $randomX = `rand $minX $maxX`;
+                float $randomY = `rand $minY $maxY`;
+                float $randomZ = `rand $minZ $maxZ`;
+                
+                  //transform 
+                  
+                select $tempArray;  
+                xform -ws -translation $randomX $randomY $randomZ;
+               
+            }
+        
+      
+    }
+    
+
+   // int $NumOfDuplicates = 10;
+}
+
+RandomPlacement (10,0,32,-5,4,-8,5);

@@ -3,10 +3,11 @@
 proc ChangeColor(int $color)
 {
     $selection = `ls -sl`;
-    if ($selection == 0)
+    
+   /* if ($selection == 0)
     {
         error "Nothing selected. Please try again.";
-    }
+    } */
     
     string $shapes[];
     for ($obj in $selection)
@@ -31,9 +32,15 @@ proc ChangeColor(int $color)
             setAttr ($shape + ".overrideEnabled") 1;
             setAttr ($shape + ".overrideColor") $color;
         }
+        
+        print "Colors have changed!";
+        
     }
+    
 }
+    ChangeColor(31);
 }
+  
   
   
   
